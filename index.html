@@ -11,6 +11,7 @@
     
 </head>
 <body>
+    <div class="container">
         <!-- design for navigation and image head website -->
       <div class="header">
         <div class="header-nav">
@@ -31,32 +32,35 @@
             </div>
             <div class="nav-select"><a href="#">Book Now</a></div>
         </div>
-        <img src="./imgs/hotel.jpg" alt="" class="header-img">
-        <!-- form search hotel name -->
-        <div class="header-submit">
-            <div class="submit-head">
-                <i class="fas fa-bed"></i>Hotel Name
-            </div>
-            <div class="submit-body">
-                <div class="submit-items">
-                    <label for="checkin"><i class="far fa-calendar-alt"></i>Check in</label>
-                    <input type="text" class="submit-input" name="checkin" placeholder="DD MM YYYY">
+        <div class="header-img">
+            <img src="./imgs/hotel.jpg" alt="" class="head-img">
+  
+            <!-- form search hotel name -->
+            <div class="header-submit">
+                <div class="submit-head">
+                    <i class="fas fa-bed"></i>Hotel Name
                 </div>
-                <div class="submit-items">
-                    <label for="checkout"><i class="far fa-calendar-alt"></i>Checkout</label>
-                    <input type="text" class="submit-input" name="checkout" placeholder="DD MM YYYY">
+                <div class="submit-body">
+                    <div class="submit-items">
+                        <label for="checkin"><i class="far fa-calendar-alt"></i>Check in</label>
+                        <input type="text" class="submit-input" name="checkin" placeholder="DD MM YYYY">
+                    </div>
+                    <div class="submit-items">
+                        <label for="checkout"><i class="far fa-calendar-alt"></i>Checkout</label>
+                        <input type="text" class="submit-input" name="checkout" placeholder="DD MM YYYY">
+                    </div>
+                    <div class="submit-items">
+                        <label for="adults"><i class="fas fa-male"></i>Adults</label>
+                        <input type="text" class="submit-input" name="adults" placeholder="0">
+                    </div>
+                    <div class="submit-items">
+                        <label for="kids"><i class="fas fa-child"></i>Kids</label>
+                        <input type="text" class="submit-input" name="kids" placeholder="1">
+                    </div>
                 </div>
-                <div class="submit-items">
-                    <label for="adults"><i class="fas fa-male"></i>Adults</label>
-                    <input type="text" class="submit-input" name="adults" placeholder="0">
+                <div class="submit-foot">
+                    <div class="submit-btn"> Search availability</div>
                 </div>
-                <div class="submit-items">
-                    <label for="kids"><i class="fas fa-child"></i>Kids</label>
-                    <input type="text" class="submit-input" name="kids" placeholder="1">
-                </div>
-            </div>
-            <div class="submit-foot">
-                <div class="submit-btn"> Search availability</div>
             </div>
         </div>
       </div>
@@ -108,7 +112,7 @@
                         </div>
                     </div>
                     <div class="container-choose">
-                        <button class="choose-btn">Choose Room</button>
+                        <button class="choose-btn choose-rooms" >Choose Room</button>
                     </div>
                 </div>
                 <div class="room-container">
@@ -127,7 +131,7 @@
                         </div>
                     </div>
                     <div class="container-choose">
-                        <button class="choose-btn">Choose Room</button>
+                        <button class="choose-btn choose-rooms" >Choose Room</button>
                     </div>
                 </div>
                 <div class="room-container">
@@ -147,7 +151,40 @@
                         </div>
                     </div>
                     <div class="container-choose">
-                        <button class="choose-btn">Choose Room</button>
+                        <button class="choose-btn choose-rooms" >Choose Room</button>
+                    </div>
+                </div>
+                <div id="modal-view">
+                    <div class="modal">
+                        <div class="modal-head">
+                            Thông tin khách hàng
+                        </div>
+                        <div class="modal-content">
+                            <label for="nameuser">Tên khách hàng</label>
+                                <input type="text" id="nameuser" placeholder="Họ tên">
+                            
+                            <label for="phonenumber">Số điện thoại</label>
+                                <input type="text" id="phonenumber" placeholder="Số điện thoại">
+                            
+                            <label for="rooms">Số phòng</label>
+                                <select id="room">
+                                    <optgroup label="tầng 1">
+                                        <option value="101">phòng 101</option>
+                                        <option value="102">phòng 102</option>
+                                        <option value="103">phòng 103</option>
+                                    </optgroup>
+                                    <optgroup label="tầng 2">
+                                        <option value="201">phòng 201</option>
+                                        <option value="202">phòng 202</option>
+                                        <option value="203">phòng 203</option>
+                                    </optgroup>
+                                </select>
+                            <label for="datein">Ngày đến</label>
+                                <input type="text" id="datein" placeholder="DD / MM / YYYY">
+                            <label for="dateout">Ngày đi</label>
+                                <input type="text" id="dateout" placeholder="DD / MM / YYYY">
+                            <button>Đặt phòng</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -245,6 +282,7 @@
         </div>
         <div class="foot-powered">Powered by<a href="#">Vanquyen.css</a></div>
       </div>
+    </div>
        <!-- code js for show and hide menu for mobile devices -->
       <script>
           var btnClose = document.querySelector('.btn-close');
@@ -262,6 +300,21 @@
                 moblieMenu.classList.remove('open');
               })
           }
+
+          // hiện, ẩn hộp thông tin khách hàng khi ấn nút chọn phòng 
+          var modal = document.getElementById('modal-view');
+
+          var btnsRoom = document.querySelectorAll('.choose-rooms');
+          btnsRoom.forEach(Element => {
+              Element.addEventListener('click', function (){
+                  modal.style.display = "block";
+              })
+          });
+          window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
       </script>
 </body>
 </html>

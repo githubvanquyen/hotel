@@ -12,6 +12,11 @@ body{
     background-color: rgb(247, 247, 247);
 }
 
+.container{
+    width: 1280px;
+    margin: 0 auto;
+}
+
 .header{
     width: 100%;
 }
@@ -77,22 +82,24 @@ body{
     display: block;
     font-weight: lighter;
 }
-
 .header-img{
     width: 100%;
-    padding: 0px 16px;
-    position: relative;
     margin-top: 44px;
+    padding: 0px 16px; 
+    position: relative;
+}
+
+.head-img{
+    width: 100%;
+    
 }
 
 .header-submit{
+    position: absolute;
     width: 50%;
     height: min-content;
-    position: absolute;
-    left: 0;
+    left: 48px;
     top: 50%;
-    bottom: 0;
-    margin-left: 64px;
     transform: translateY(-50%); 
     background-color: white;
 
@@ -242,6 +249,74 @@ body{
     color: #000;
     
 }
+
+
+.modal{
+    width: 40%;
+    height: min-content;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    background-color: white;
+    border-radius: 5px;
+}
+
+.modal-head{
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    background-color: #f44336;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 5px 5px 0 0 ;
+}
+
+.modal-content{
+    width: 100%;
+    padding: 16px;
+    
+}
+
+.modal-content input, label, select{
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    margin: 4px 0px;
+    padding: 4px 0px;
+}
+
+.modal-content input, select{
+    border: 1px solid gray;
+    margin-bottom: 16px ;
+}
+
+.modal-content button{
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    background-color:#f44336;
+    line-height: 40px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 5px;
+}
+.modal-content button:hover{
+    opacity: 0.5;
+}
+
+#modal-view{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0, 0, 0.6);
+    transition-duration: 0.5s;
+}
+
 
 .section-about{
     width: 100%;  
@@ -475,6 +550,12 @@ button:hover, .submit-btn:hover{
 }
 /* resize for mobile devices */
 @media screen and (max-width: 739px){
+    .container{
+        width: 100%;
+    }
+    .modal{
+        width: 90%;
+    }
     .nav-menu{
         display: none;
     }
